@@ -1,16 +1,30 @@
 package com.transapp.dto;
 
-import java.util.UUID;
+import java.math.BigDecimal;
 
 public class CreateTransactionRequestDto {
 
-	private UUID uuid;
+	private BigDecimal amount;
+	private long timestamp;
 
-	public UUID getId() {
-		return uuid;
-	}
+  public BigDecimal getAmount()
+  {
 
-	public void setId(UUID uuid) {
-		this.uuid = uuid;
-	}
+    return amount;
+  }
+
+  public void setAmount(BigDecimal amount)
+  {
+    this.amount = amount;
+  }
+
+  public long getTimestamp()
+  {
+    return timestamp;
+  }
+
+  public void setTimestamp(long timestamp)
+  {
+    this.timestamp = timestamp;
+  }
 }
