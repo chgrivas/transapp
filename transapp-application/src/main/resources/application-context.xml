@@ -9,9 +9,6 @@
     <context:annotation-config/>
     <context:property-placeholder/>
 
-    <bean class="com.focus.service.service.PlayerServiceImpl" name="playerService"/>
-
-    <bean class="com.focus.service.mapper.PlayerMapper" name="playerMapper"/>
-    <bean class="com.focus.service.vaildator.PlayerValidator" name="playerValidator"/>
+    <!-- bean class="com.focus.service.service.PlayerServiceImpl" name="playerService"/-->
 
 </beans>
