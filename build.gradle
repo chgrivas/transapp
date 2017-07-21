@@ -1,0 +1,9 @@
+allprojects {
+
+    repositories {
+        mavenCentral()
+    }
+
+    group = 'com.transapp'
+    version = '1.0'
+}
