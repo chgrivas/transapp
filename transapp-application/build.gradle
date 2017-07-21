@@ -1,0 +1,33 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.3.5.RELEASE")
+    }
+ }
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+jar {
+    baseName = 'transapp'
+    version =  '0.0.1'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-web'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+}
+
+bootRun {
+//    jvmArgs = ['-Xdebug', '-Xrunjdwp:server=y,transport=dt_socket,address=4000,suspend=y']
+}
