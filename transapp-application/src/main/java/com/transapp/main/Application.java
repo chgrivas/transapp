@@ -26,6 +26,6 @@ public class Application implements CommandLineRunner
     public void run(String... strings) throws Exception
     {
         log.info("Creating tables");
-        jdbcTemplate.execute("CREATE TABLE aaas(ID INT PRIMARY KEY, NAME VARCHAR(255))");
+        jdbcTemplate.execute("CREATE TABLE IF NOT EXISTS aaas(ID INT PRIMARY KEY, NAME VARCHAR(255))");
     }
 }
