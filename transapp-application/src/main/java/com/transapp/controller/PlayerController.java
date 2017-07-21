@@ -1,50 +1,29 @@
-package com.focus.service.controller;
+package com.transapp.controller;
 
 import java.util.UUID;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
+import com.transapp.api.TransappApi;
+import com.transapp.dto.CreateTransactionRequestDto;
+import com.transapp.dto.CreateTransactionResponseDto;
+import com.transapp.dto.GetStatisticsResponseDto;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.focus.service.api.PlayerApi;
-import com.focus.service.domain.Player;
-import com.focus.service.dto.PlayerRequestDto;
-import com.focus.service.dto.CreatePlayerResponseDto;
-import com.focus.service.dto.GetPlayerResponseDto;
-import com.focus.service.service.PlayerService;
-import com.focus.service.vaildator.PlayerValidator;
-
 @RestController
-public class PlayerController implements PlayerApi {
-
-    @Autowired
-    PlayerService playerService;
-
-    @Autowired
-    PlayerValidator playerValidator;
+public class PlayerController implements TransappApi
+{
 
 	@Override
-	public CreatePlayerResponseDto createPlayer(@RequestBody PlayerRequestDto playerRequestDto) throws NotFoundException {
-	    playerValidator.validate(playerRequestDto);
-	    return playerService.createPlayer(playerRequestDto);
+	public CreateTransactionResponseDto createTransaction(@RequestBody CreateTransactionRequestDto createTransactionRequestDto) {
+    System.out.println("heeree");
+    return null;
 	}
 
-    @Override
-    public GetPlayerResponseDto getPlayer(@PathVariable UUID playerUuid) {
-        Player player = playerService.getPlayer(playerUuid);
-        GetPlayerResponseDto getPlayerResponseDto = new GetPlayerResponseDto();
-        getPlayerResponseDto.setFirstname(player.getFirstname());
-        getPlayerResponseDto.setSurname(player.getSurname());
-        getPlayerResponseDto.setEmail(player.getEmail());
-        getPlayerResponseDto.setUsername(player.getUsername());
-        getPlayerResponseDto.setPassword(player.getPassword());
-        getPlayerResponseDto.setUuid(player.getUuid());
-
-        System.out.println("here");
-        
-        return getPlayerResponseDto;
-    }
+  @Override
+  public GetStatisticsResponseDto getStatistics() {
+    System.out.println("here");
+    return null;
+  }
 
 }

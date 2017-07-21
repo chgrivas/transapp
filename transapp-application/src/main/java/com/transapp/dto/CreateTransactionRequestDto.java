@@ -1,8 +1,8 @@
-package com.focus.service.dto;
+package com.transapp.dto;
 
 import java.util.UUID;
 
-public class CreatePlayerResponseDto {
+public class CreateTransactionRequestDto {
 
 	private UUID uuid;
 

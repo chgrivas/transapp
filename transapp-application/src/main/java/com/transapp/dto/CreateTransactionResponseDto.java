@@ -1,6 +1,6 @@
-package com.focus.service.dto;
+package com.transapp.dto;
 
-public class PlayerRequestDto {
+public class CreateTransactionResponseDto {
 
 	private String firstname;
 	private String surname;
