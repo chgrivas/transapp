@@ -4,6 +4,6 @@ allprojects {
         mavenCentral()
     }
 
-    group = 'com.chgrivas'
+    group = 'com.transapp'
     version = '0.0.1'
 }
