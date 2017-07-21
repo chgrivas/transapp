@@ -1,0 +1,27 @@
+swagger: '2.0'
+info:
+ title: transapp API
+ description: transapp application
+ version: '0.0.1'
+schemes:
+ - http
+consumes:
+ - application/json
+produces:
+ - application/json
+basePath: /api
+
+tags:
+ - name: mgt
+   description: API for transaction management operations
+
+paths:
+ /players:
+   get:
+     summary: Get transaction information
+     description: Retrieve information about the transactions of the last 60 seconds
+     tags:
+       - mgt
+     responses:
+       200:
+         description: Returns information for the transactions of the last 60 seconds
