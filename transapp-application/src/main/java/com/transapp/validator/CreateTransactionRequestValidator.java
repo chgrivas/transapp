@@ -14,6 +14,12 @@ public class CreateTransactionRequestValidator implements Validator<CreateTransa
   @Override
   public boolean isValid(CreateTransactionRequestDto createTransactionRequestDto)
   {
-    return Instant.now().minusMillis(createTransactionRequestDto.getTimestamp()).toEpochMilli() <= SIXTY_SECONDS_IN_MILLIS;
+    long currentTimestamp = System.currentTimeMillis();
+    long transactionTimestamp = createTransactionRequestDto.getTimestamp();
+    if (currentTimestamp < transactionTimestamp ||
+        currentTimestamp - createTransactionRequestDto.getTimestamp() > SIXTY_SECONDS_IN_MILLIS) {
+      return false;
+    }
+    return true;
   }
 }

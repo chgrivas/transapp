@@ -1,50 +1,62 @@
 package com.transapp.dto;
 
-import java.util.UUID;
+import java.math.BigDecimal;
 
 public class GetStatisticsResponseDto {
 
-    private UUID uuid;
-    private String firstname;
-    private String surname;
-    private String username;
-    private String password;
-    private String email;
-    public UUID getUuid() {
-        return uuid;
-    }
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
-    }
-    public String getFirstname() {
-        return firstname;
-    }
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-    public String getSurname() {
-        return surname;
-    }
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-    public String getUsername() {
-        return username;
-    }
-    public void setUsername(String username) {
-        this.username = username;
-    }
-    public String getPassword() {
-        return password;
-    }
-    public void setPassword(String password) {
-        this.password = password;
-    }
-    public String getEmail() {
-        return email;
-    }
-    public void setEmail(String email) {
-        this.email = email;
+    private BigDecimal sum;
+    private BigDecimal max;
+    private BigDecimal min;
+    private BigDecimal avg;
+    private int count;
+
+    public BigDecimal getSum()
+    {
+    return sum;
     }
 
+    public void setSum(BigDecimal sum)
+    {
+    this.sum = sum;
+    }
+
+    public BigDecimal getMax()
+    {
+    return max;
+    }
+
+    public void setMax(BigDecimal max)
+    {
+    this.max = max;
+    }
+
+    public BigDecimal getMin()
+    {
+    return min;
+    }
+
+    public void setMin(BigDecimal min)
+    {
+    this.min = min;
+    }
+
+    public BigDecimal getAvg()
+    {
+    return avg;
+    }
+
+    public void setAvg(BigDecimal avg)
+    {
+    this.avg = avg;
+    }
+
+    public int getCount()
+    {
+    return count;
+    }
+
+    public void setCount(int count)
+      {
+        this.count = count;
+      }
 }

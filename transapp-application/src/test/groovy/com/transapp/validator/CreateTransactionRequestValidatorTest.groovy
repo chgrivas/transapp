@@ -15,7 +15,7 @@ class CreateTransactionRequestValidatorTest extends Specification {
 
   def "transaction request is valid when timestamp is not older than 60 secs"() {
     given:
-      def currentTimestamp = Instant.now().toEpochMilli()
+      def currentTimestamp = System.currentTimeMillis()
     and:
       def request = new CreateTransactionRequestDto(timestamp: currentTimestamp)
     when:
@@ -26,7 +26,7 @@ class CreateTransactionRequestValidatorTest extends Specification {
 
   def "transaction request is NOT valid when timestamp is older than 60 secs"() {
       given:
-        def currentTimestamp = Instant.now().toEpochMilli()
+        def currentTimestamp = System.currentTimeMillis()
       and:
         def request = new CreateTransactionRequestDto(timestamp: currentTimestamp - 70000)
       when:
