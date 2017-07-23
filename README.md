@@ -42,4 +42,4 @@ The basic implementation choices were:
 
 # Q&A
 
-For qurestions please contact Christos Grivas <chgrivas7@gmail.com>
+For questions please contact Christos Grivas <chgrivas7@gmail.com>
