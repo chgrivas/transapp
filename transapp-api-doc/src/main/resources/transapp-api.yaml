@@ -1,27 +1,72 @@
 swagger: '2.0'
 info:
- title: transapp API
- description: transapp application
- version: '0.0.1'
+  title: transapp API
+  description: transapp application
+  version: '0.0.1'
 schemes:
- - http
+  - http
 consumes:
- - application/json
+  - application/json
 produces:
- - application/json
+  - application/json
 basePath: /api
 
 tags:
- - name: mgt
-   description: API for transaction management operations
+  - name: Transactions
+    description: API for transaction management operations
 
 paths:
- /players:
-   get:
-     summary: Get transaction information
-     description: Retrieve information about the transactions of the last 60 seconds
-     tags:
-       - mgt
-     responses:
-       200:
-         description: Returns information for the transactions of the last 60 seconds
+  /transactions:
+    post:
+      summary: Create new transaction
+      description: Provide with the timestamp and the amount of the transaction and persist it
+      tags:
+        - Transactions
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: transaction
+          description: The transaction to create
+          schema:
+            type: object
+            properties:
+              timestamp:
+                description: The transaction creation timestamp
+                type: integer
+                format: int64
+              amount:
+                description: The transaction amount
+                type: number
+                required: true
+      responses:
+        201:
+          description: The transactions has been persisted successfully
+        204:
+          description: The transaction timestamp was older than 60 seconds
+  /statistics:
+    get:
+      summary: Get the current statistics
+      descriptions: Return information about the transactions of the last 60 seconds before the request
+      tags:
+        - Transactions
+      responses:
+        200:
+          description: Stastistics about the transactions of the last 60 seconds
+          schema:
+            properties:
+              sum:
+                type: number
+                description: The sum of the last 60 seconds transactions' amounts
+              avg:
+                type: number
+                description: The average of the last 60 seconds transactions' amounts
+              max:
+                type: number
+                description: The maximum amount found in the trasnactions of the last 60 seconds
+              min:
+                type: number
+                description: The minimum amount found in the transactions of the last 60 seconds
+              count:
+                type: integer
+                description: The number of transactions found with timestamp in the last 60 seconds
