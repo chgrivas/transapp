@@ -33,6 +33,13 @@ The basic implementation choices were:
 - a main table for transaction persistence and views for the sliding window implementation in order to achieve O(1) preformance at the time of statistics retrieval.
 - Groovy & spock framework for quick and clear unit tests
 
+# TODO
+
+- Add more unit tests
+- Add API level test layer
+- Check concurrency and performance regarding the schema and the views
+- Handle exceptional cases
+
 # Q&A
 
 For qurestions please contact Christos Grivas <chgrivas7@gmail.com>
